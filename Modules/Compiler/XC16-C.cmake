@@ -1,5 +1,5 @@
 #=============================================================================
-# Copyright 2018 Sam Hanes
+# Copyright 2020 Paul M. Bendixen
 #
 # Distributed under the OSI-approved BSD License (the "License");
 # see accompanying file COPYING.txt for details.
@@ -12,10 +12,10 @@
 #  substitute the full License text for the above reference.)
 
 # called by `CMakeCInformation`
-# to configure the XC8 compiler interface for C files
+# to configure the XC16 compiler interface for C files
 
 
-set(MICROCHIP_XC8_MODE "free"
+set(MICROCHIP_XC16_MODE "free"
     CACHE STRING "the license mode for XC8 (pro, std, free)"
 )
 
@@ -23,7 +23,7 @@ string(APPEND CMAKE_C_FLAGS_INIT
     # don't output the copyright notice on every invocation
     "-Q"
     # use the configured license mode and fail if it's not available
-    " --mode=${MICROCHIP_XC8_MODE} --nofallback"
+    " --mode=${MICROCHIP_XC16_MODE} --nofallback"
     # build for the configured MCU model
     " --chip=${MICROCHIP_MCU_MODEL}"
 )
