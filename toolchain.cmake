@@ -62,7 +62,9 @@ list(APPEND MICROCHIP_FAMILIES_8
     PIC12F
     PIC16F
     PIC18F
+    AVR128
 )
+
 
 # known 16-bit MCU families
 list(APPEND MICROCHIP_FAMILIES_16
@@ -112,6 +114,10 @@ elseif(MICROCHIP_MCU MATCHES "^(dsPIC|PIC)(32M[XZ]|[0-9]+[A-Z])([A-Z0-9]+)$")
             "Unsupported MCU family '${MICROCHIP_MCU_FAMILY}'."
         )
     endif()
+elseif(MICROCHIP_MCU MATCHES "^AVR([0-9]+)DA([0-9]+)$")
+    set(MICROCHIP_MCU_FAMILY "AVR${CMAKE_MATCH_1}")
+    set(MICROCHIP_MCU_MODEL ${CMAKE_MATCH_0} )
+    set(CMAKE_SYSTEM_PROCESSOR "AVR" )
 
 else()
     message(FATAL_ERROR
