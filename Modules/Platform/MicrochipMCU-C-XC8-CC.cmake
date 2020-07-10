@@ -52,6 +52,8 @@ set(CMAKE_C_COMPILER_ID_RUN 1)
 set(CMAKE_C_COMPILER_ID GNU)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 string(APPEND CMAKE_C_FLAGS_INIT "-mcpu=${MICROCHIP_MCU_MODEL}" )
+string(APPEND CMAKE_ASM_FLAGS_INIT "-mcpu=${MICROCHIP_MCU_MODEL}" )
+string(APPEND CMAKE_CXX_FLAGS_INIT "-mcpu=${MICROCHIP_MCU_MODEL}" )
 
 # call the compiler to check its version
 function(_xc8_cc_get_version)
