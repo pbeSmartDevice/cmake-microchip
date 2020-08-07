@@ -14,6 +14,8 @@
 # This module is loaded during the search for a C compiler
 # to provide the information necessary to find one.
 
+string( TOLOWER ${MICROCHIP_MCU_MODEL} MICROCHIP_MCU_MODEL_L )
+
 include(MicrochipPathSearch)
 MICROCHIP_PATH_SEARCH(MICROCHIP_XC8_PATH xc8
     CACHE "the path to a Microchip XC8 installation"
@@ -48,3 +50,11 @@ if(NOT CMAKE_C_COMPILER)
 endif()
 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
+
+if( PACKPATH )
+	set( PACKFLAGS "-B ${PACKPATH}/gcc/dev/${MICROCHIP_MCU_MODEL_L} -I ${PACKPATH}/include" )
+	message( "Found a pack, setting the flags" )
+endif()
+
+set(CMAKE_C_FLAGS_INIT "${PACKFLAGS} -mmcu=${MICROCHIP_MCU_MODEL_L}" )
