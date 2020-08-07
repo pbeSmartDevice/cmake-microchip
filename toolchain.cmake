@@ -62,9 +62,12 @@ list(APPEND MICROCHIP_FAMILIES_8
     PIC12F
     PIC16F
     PIC18F
-    AVR128
 )
 
+# known AVR MCU families
+list(APPEND MICROCHIP_FAMILIES_AVR
+    AVR128DA
+)
 
 # known 16-bit MCU families
 list(APPEND MICROCHIP_FAMILIES_16

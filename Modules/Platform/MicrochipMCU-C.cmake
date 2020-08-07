@@ -17,7 +17,7 @@
 if(CMAKE_SYSTEM_PROCESSOR STREQUAL "PIC_8")
     include(Platform/MicrochipMCU-C-XC8)
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "AVR")
-    include(Platform/MicrochipMCU-C-XC8-CC)
+    include(Platform/MicrochipMCU-C-GCC)
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "PIC_16")
     include(Platform/MicrochipMCU-C-XC16)
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "PIC_32")
